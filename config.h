@@ -1,0 +1,6 @@
+#define MASTER_LEFT
+#define USE_SERIAL
+
+#define COMBO_TERM 50
+#define COMBO_ALLOW_ACTION_KEYS 
+#define COMBO_VARIABLE_LEN

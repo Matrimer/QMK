@@ -1,0 +1,11 @@
+// Levinson specific combos
+COMB(hndqt,       DQT,              TOED, KC_L)
+COMB(nmQuot,      KC_QUOT,          KC_L, KC_U)
+COMB(fpESC,	  KC_ESC,	    KC_F, KC_P)
+COMB(wfQ,	  KC_Q,		    KC_W, KC_F)
+COMB(zcX,	  KC_X,		    KC_Z, KC_C)
+COMB(yjQUEST,	  LSFT(PLUS),	    KC_Y, KC_J)
+COMB(mdotCOMM,	  KC_COMM,	    KC_M, KC_DOT)
+
+
+SUBS(pasta,       "I'd just like to interject for a moment.",       KC_A, KC_R, KC_S)
