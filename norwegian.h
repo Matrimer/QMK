@@ -11,7 +11,7 @@
 #define OE      KC_SCLN
 #define TOED    KC_RBRC // ¨
 #define DQT     KC_AT // "
-#define DLR     RALT(KC_DLR)
+#define DLR     RALT(KC_4)
 #define AMPR    KC_CIRC // &
 #define SLSH    KC_AMPR
 #define BSLSH	KC_EQL

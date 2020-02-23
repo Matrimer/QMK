@@ -1,6 +1,6 @@
 #include QMK_KEYBOARD_H
 #include "norwegian.h"
-#include "g/keymap_combo.h"
+//#include "g/keymap_combo.h"
 //#include "g/keymap_engine.h"
 
 extern keymap_config_t keymap_config;
@@ -23,32 +23,32 @@ extern keymap_config_t keymap_config;
 
            /* Combo map
             * ┌──────┬──────┬──────┬──────┬──────┬──────┐                       ┌──────┬──────┬──────┬──────┬──────┬──────┐
-            * │      │      q     ESC                   │                       │     DQT    QOUT   ENT     ?      │      │
+            * │      │      q     ESC                   │                       │     DQT    QOUT   ENT     ?      │      │ (? is KC_UNDS)
+            * ├──────┼──────┼──────┼──────┼──────┼──────┤                       ├── ───┼──────┼──────┼──────┼──────┼──────┤
+            * │      │      │             │      ?      │                       │             |      |      │      │      │
             * ├──────┼──────┼──────┼──────┼──────┼──────┤                       ├──────┼──────┼──────┼──────┼──────┼──────┤
-            * │      │      │      │      │      |      │                       │      |      |      |      │      │      │
-            * ├──────┼──────┼──────┼──────┼──────┼──────┤                       ├──────┼──────┼──────┼──────┼──────┼──────┤
-            * │      │      x                           │                       │                  COMM            │      │
-            * ├──────┼──────┼──────┼──────┼──────┼──────┤                       ├──────┼──────┼──────┼──────┼──────┼──────┤
-            * │      |      │      │      |      │      │                       |      │      │      │      │      │      │
+            * │      │      x                           │                       │            DEL                   │      │
+            * ├──────┼──────┼──────┼──────┼──────┼──────┤                       ├──────┼──E───┼──────┼──────┼──────┼──────┤
+            * │      |      │      │      |             │                       |      E      │      │      │      │      │
             * └──────┴──────┴──────┴──────┴──────┴──────┘                       └──────┴──────┴──────┴──────┴──────┴──────┘
 	    */
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	   /* Base layer
 	    * ┌──────┬──────┬──────┬──────┬──────┬──────┐ 			┌──────┬──────┬──────┬──────┬──────┬──────┐
-	    * │      │  w   │  f   │  p   │  g   │  ø   | 			│  ¨^  │  l   │  u   │  y   │  j   │      │
+	    * │   q  │  å   │  w   │  f   │  p   │  u   | 			|  ¨^  │  g   │  ø   │  y   │  j   │  ENT │
+	    * ├──────┼──────┼──────┼──────┼──────┼──*───┤ 			├──────┼──────┼──—───┼──────┼──—───┼──────┤
+	    * │  ESC │  a   │  r   │  s   │ NAV/t│ NUM/d│ 			│ NUM/h│ NAV/n│  o   |  i   │  l   │  QUOT│
 	    * ├──────┼──────┼──────┼──────┼──────┼──────┤ 			├──────┼──────┼──────┼──────┼──────┼──────┤
-	    * │      │  a   │  r   │  s   │ NAV/t│ NUM/d│ 			│ NUM/h│ NAV/n│  o   |  i   │  l   │      │
+	    * │   X  │  æ   │  z   │  c   │  v   │  b   | 			|  k   │  m   │  ,;  │  .:  │  -_  │  ?   │      
 	    * ├──────┼──────┼──────┼──────┼──────┼──────┤ 			├──────┼──────┼──────┼──────┼──────┼──────┤
-	    * │      │  z   │  c   │  v   │  b   │  å   | 			|  æ   │  k   │  m   │  .:  │  -_  │      │      
-	    * ├──────┼──────┼──────┼──────┼──────┼──────┤ 			├──────┼──────┼──────┼──────┼──────┼──────┤
-	    * │      │ GAME │      │ META |LCTtab│SYMspc│ 			|SFTbs │LALT/e│ META │      │      │      │
+	    * │      │ GAME │      │ META |LCTtab│SYMspc│ 			|SFTbs │LALT/e│ META │  COMM│      │      │
 	    * └──────┴──────┴──────┴──────┴──────┴──────┘ 			└──────┴──────┴──────┴──────┴──────┴──────┘
 	    */
   [BASE] = LAYOUT_ortho_4x12( \
-     KC_NO, KC_W,    KC_F,  KC_P,    KC_G,	    OE,			TOED,       	KC_L,	     KC_U,    KC_Y,   KC_J,  KC_NO, \
-     KC_NO, KC_A,    KC_R,  KC_S,    NAV_T,	    NUM_D,		NUM_H,       	NAV_N,	     KC_O,    KC_I,   KC_L,  KC_NO, \
-     KC_NO, KC_Z,    KC_C,  KC_V,    KC_B,	    AA,			AE,       	KC_K,	     KC_M,    KC_DOT, MINS,  KC_NO, \
-     KC_NO, KC_NO, KC_NO, KC_LGUI, LCTL_T(KC_TAB), SYM_SPC,		SFT_T(KC_BSPC), ALT_T(KC_E), KC_RGUI, KC_NO,  KC_NO, KC_NO \
+     KC_Q,   AA,    KC_W,  KC_F,    KC_P,	  KC_U,			TOED,       	KC_G,	       OE,      KC_Y,   KC_J,  KC_ENT, \
+     KC_ESC, KC_A,  KC_R,  KC_S,    NAV_T,	  NUM_D,		NUM_H,       	NAV_N,	       KC_O,    KC_I,   KC_L,  QUOT, \
+     KC_X,   AE,    KC_Z,  KC_C,    KC_V,         KC_B,			KC_K,       	KC_M,	       KC_COMM, KC_DOT, MINS,  KC_UNDS, \
+     KC_NO,  KC_NO, KC_NO, KC_LGUI, LCTL_T(KC_E), SYM_SPC,		SFT_T(KC_BSPC), ALT_T(KC_TAB), KC_RGUI, KC_COMM, KC_NO, KC_NO \
   ),
 
    /* Num layer
@@ -59,7 +59,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     * ├──────┼──────┼──────┼──────┼──────┼──────┤ 		├──────┼──────┼──────┼──────┼──────┼──────┤
     * │      │  F1  │  F2  │  F3  │  F4  │      │ 		│NUMLCK│  1¹  │  2²  │  3³  │      │      │
     * ├──────┼──────┼──────┼──────┼──────┼──────┤ 		├──────┼──────┼──────┼──────┼──────┼──────┤
-    * │      │      │      │      |      │      | 		|      │      │      │      │      │      │
+    * │      │      │      │ LGUI | LCTRL│      | 		| SHFT │ LALT |RGUI  │      │      │      │
     * └──────┴──────┴──────┴──────┴──────┴──────┘ 		└──────┴──────┴──────┴──────┴──────┴──────┘
     */
   [NUM] = LAYOUT_ortho_4x12( \
@@ -71,19 +71,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
    /* Symbols layer
     * ┌──────┬──────┬──────┬──────┬──────┬──────┐ 		┌──────┬──────┬──────┬──────┬──────┬──────┐
-    * │      │  £   │  €¢  │  |   │  πΠ  │  ¬   │ 		│  ~ˇ  │  \   │  {   │  }   │  +   │      │
+    * │      │  £   │  €¢  │  |§  │  πΠ  │      │ 		│  ~ˇ  │  \   │  {   │  }   │  +   │      │
     * ├──────┼──────┼──────┼──────┼──────┼──────┤ 		├──────┼──────┼──────┼──────┼──────┼──────┤
-    * │      │  $   │  #   │  !   │  %   |      │ 		│  &¥  │  /   │  («  │  )»  │  =   │      │
+    * │      │  $   │  #   │  !   │  %   |      │ 		│  &   │  /   │  (   │  )   │  =   │ DQT  │
     * ├──────┼──────┼──────┼──────┼──────┼──────┤ 		├──────┼──────┼──────┼──────┼──────┼──────┤
-    * │      │  ¤   │  ß   │  §   │  @   |      │ 		│  `   │   ´  │  [   │  ]   │  –—  │      │
+    * │      │  ¤   │  ß   │      │  @   |      │ 		│  `   │   ´¬ │  [«  │  ]»  │  –—  │      │
     * ├──────┼──────┼──────┼──────┼──────┼──────┤ 		├──────┼──────┼──────┼──────┼──────┼──────┤
-    * │      |      │      │      |      │      │ 		| SHIFT│ RALT │      │      │      │      │
+    * │      |      │      │ LGUI | LCTRL│      │ 		| SHIFT│ RALT │ RGUI │      │      │      │
     * └──────┴──────┴──────┴──────┴──────┴──────┘ 		└──────┴──────┴──────┴──────┴──────┴──────┘
     */
   [SYM] = LAYOUT_ortho_4x12( \
      KC_NO, PND,   EURO,    PIPE,    PI,      KC_NO,		TILD,    BSLSH,   LCBR,    RCBR,  PLUS,  KC_NO, \
-     KC_NO, DLR,   KC_HASH, KC_EXLM, KC_PERC, KC_NO,		AMPR,    SLSH,    LPRN,    RPRN,  EQL,   KC_NO, \
-     KC_NO, CURR,  SS,      PARAG,   AT,      KC_NO,		GRV,     SGRV,    LBRC,    RBRC,  LMINS, KC_NO, \
+     KC_NO, DLR,   KC_HASH, KC_EXLM, KC_PERC, KC_NO,		AMPR,    SLSH,    LPRN,    RPRN,  EQL,   DQT, \
+     KC_NO, CURR,  SS,      KC_NO,   AT,      KC_NO,		GRV,     SGRV,    LBRC,    RBRC,  LMINS, KC_NO, \
      KC_NO, KC_NO, KC_NO,   KC_LGUI, KC_LCTL, KC_TRNS,		KC_LSFT, KC_RALT, KC_RGUI, KC_NO, KC_NO, KC_NO \
   ), 
 
