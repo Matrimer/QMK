@@ -29,6 +29,7 @@
 #define LBRC	RALT(KC_8)
 #define RBRC	RALT(KC_9)
 #define AT	RALT(KC_2)
+#define QUEST   LSFT(KC_UNDS)
 
 // Other symbols
 #define SS      RALT(KC_S)
